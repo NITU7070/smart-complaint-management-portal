@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NagrikSeva – Citizen Complaint Portal</title>
+<link rel="stylesheet" href="style.css">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Sora:wght@600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <div class="nav-inner">
+    <div class="nav-brand">
+      <span class="logo-icon">⚖</span>
+      <div>
+        <span class="brand-name">NagrikSeva</span>
+        <span class="brand-sub">Citizen Complaint Portal</span>
+      </div>
+    </div>
+    <div class="nav-links">
+      <button class="nav-link active" onclick="showPage('home')">Home</button>
+      <button class="nav-link" onclick="showPage('submit')">Submit</button>
+      <button class="nav-link" onclick="showPage('track')">Track</button>
+      <button class="nav-link" onclick="showPage('dashboard')">Dashboard</button>
+      <button class="nav-link" onclick="showPage('analytics')">Analytics</button>
+    </div>
+    <div class="nav-actions">
+      <button class="theme-toggle" onclick="toggleTheme()" title="Toggle dark mode">
+        <span class="theme-icon">🌙</span>
+      </button>
+      <button class="btn-primary" onclick="showPage('submit')">File a Complaint</button>
+    </div>
+    <button class="mobile-menu-btn" onclick="toggleMobileMenu()">☰</button>
+  </div>
+  <div class="mobile-menu" id="mobileMenu">
+    <button onclick="showPage('home');toggleMobileMenu()">Home</button>
+    <button onclick="showPage('submit');toggleMobileMenu()">Submit</button>
+    <button onclick="showPage('track');toggleMobileMenu()">Track</button>
+    <button onclick="showPage('dashboard');toggleMobileMenu()">Dashboard</button>
+    <button onclick="showPage('analytics');toggleMobileMenu()">Analytics</button>
+  </div>
+</nav>
+
+<!-- ========= HOME PAGE ========= -->
+<div id="page-home" class="page active">
+  <section class="hero">
+    <div class="hero-content">
+      <span class="hero-badge">Government of India — Digital Grievance System</span>
+      <h1>Your voice reaches the right desk, <em>faster</em>.</h1>
+      <p class="hero-sub">Submit complaints against public services, track their resolution in real time, and hold institutions accountable. Every concern is assigned, monitored, and resolved within SLA timelines.</p>
+      <div class="hero-cta">
+        <button class="btn-primary btn-lg" onclick="showPage('submit')">File a Complaint →</button>
+        <button class="btn-outline btn-lg" onclick="showPage('track')">Track Existing</button>
+      </div>
+      <div class="hero-stats">
+        <div class="hstat"><span class="hstat-num">48,291</span><span class="hstat-label">Complaints resolved</span></div>
+        <div class="hstat-divider"></div>
+        <div class="hstat"><span class="hstat-num">96.4%</span><span class="hstat-label">Within SLA</span></div>
+        <div class="hstat-divider"></div>
+        <div class="hstat"><span class="hstat-num">4.7 days</span><span class="hstat-label">Avg resolution time</span></div>
+      </div>
+    </div>
+    <div class="hero-visual">
+      <div class="portal-preview">
+        <div class="preview-header">
+          <span class="preview-dot red"></span>
+          <span class="preview-dot yellow"></span>
+          <span class="preview-dot green"></span>
+          <span class="preview-title">Complaint #NS-2025-08841</span>
+        </div>
+        <div class="preview-body">
+          <div class="preview-timeline">
+            <div class="ptl-item done"><span class="ptl-dot"></span><span>Submitted</span><span class="ptl-time">Jan 14, 09:22</span></div>
+            <div class="ptl-item done"><span class="ptl-dot"></span><span>Assigned — Water Dept.</span><span class="ptl-time">Jan 14, 11:05</span></div>
+            <div class="ptl-item active"><span class="ptl-dot"></span><span>Under Review</span><span class="ptl-time">In progress</span></div>
+            <div class="ptl-item"><span class="ptl-dot"></span><span>Resolution</span><span class="ptl-time">—</span></div>
+          </div>
+          <div class="preview-badge-row">
+            <span class="badge-sla ok">SLA: 3 days left</span>
+            <span class="badge-dept">Water &amp; Sanitation</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="features-section">
+    <div class="section-label">Why NagrikSeva</div>
+    <div class="features-grid">
+      <div class="feature-card">
+        <div class="feat-icon">🎯</div>
+        <h3>Auto-Routing</h3>
+        <p>Complaints are automatically assigned to the right department based on category, so nothing falls through the cracks.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">⏱</div>
+        <h3>SLA Monitoring</h3>
+        <p>Every complaint gets a deadline. Breaches are flagged automatically and escalated to senior officials.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">🕵️</div>
+        <h3>Anonymous Submission</h3>
+        <p>Sensitive concerns can be filed without revealing your identity. Confidentiality is enforced at every step.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">📍</div>
+        <h3>Geo-Tagged Reports</h3>
+        <p>Attach your location to pinpoint area-specific issues and help administrators spot geographic patterns.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">📊</div>
+        <h3>Live Analytics</h3>
+        <p>Department heads can track resolution rates, recurring issues, and team performance in real time.</p>
+      </div>
+      <div class="feature-card">
+        <div class="feat-icon">⭐</div>
+        <h3>Feedback Loop</h3>
+        <p>Rate the resolution after closure. Your feedback drives service quality improvements.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="process-section">
+    <div class="section-label">How it works</div>
+    <div class="process-steps">
+      <div class="pstep"><span class="pstep-num">01</span><h4>Submit</h4><p>Fill the form with category, description, and any supporting media. Takes under 3 minutes.</p></div>
+      <div class="pstep-arrow">→</div>
+      <div class="pstep"><span class="pstep-num">02</span><h4>Auto-Routed</h4><p>System assigns complaint to the relevant department and sets SLA deadline.</p></div>
+      <div class="pstep-arrow">→</div>
+      <div class="pstep"><span class="pstep-num">03</span><h4>Track</h4><p>Use your unique tracking ID to follow progress anytime from any device.</p></div>
+      <div class="pstep-arrow">→</div>
+      <div class="pstep"><span class="pstep-num">04</span><h4>Resolved</h4><p>Receive notification when resolved. Rate the experience to close the loop.</p></div>
+    </div>
+  </section>
+</div>
+
+<!-- ========= SUBMIT PAGE ========= -->
+<div id="page-submit" class="page">
+  <div class="page-container">
+    <div class="page-header">
+      <h2>File a Complaint</h2>
+      <p>All fields marked * are required. Unique tracking ID is generated on submission.</p>
+    </div>
+
+    <div class="form-layout">
+      <form id="complaintForm" class="complaint-form" onsubmit="submitComplaint(event)" novalidate>
+
+        <div class="form-section-title">Personal Information</div>
+
+        <div class="anonymous-toggle">
+          <label class="toggle-label">
+            <input type="checkbox" id="anonCheck" onchange="toggleAnon()">
+            <span class="toggle-switch"></span>
+            Submit anonymously
+          </label>
+          <span class="toggle-hint">Your identity will not be recorded or shared.</span>
+        </div>
+
+        <div id="personalFields">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="fullName">Full Name *</label>
+              <input type="text" id="fullName" placeholder="Ramesh Kumar" required>
+              <span class="field-error" id="err-name"></span>
+            </div>
+            <div class="form-group">
+              <label for="email">Email Address *</label>
+              <input type="email" id="email" placeholder="you@example.com" required>
+              <span class="field-error" id="err-email"></span>
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Phone Number</label>
+              <input type="tel" id="phone" placeholder="+91 98765 43210">
+            </div>
+            <div class="form-group">
+              <label for="aadhaar">Aadhaar / ID (optional)</label>
+              <input type="text" id="aadhaar" placeholder="XXXX-XXXX-XXXX">
+            </div>
+          </div>
+        </div>
+
+        <div class="form-section-title" style="margin-top:2rem">Complaint Details</div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="category">Category *</label>
+            <select id="category" required onchange="updateDeptPreview()">
+              <option value="">Select a category</option>
+              <option value="water">Water &amp; Sanitation</option>
+              <option value="electricity">Electricity</option>
+              <option value="roads">Roads &amp; Transport</option>
+              <option value="healthcare">Healthcare</option>
+              <option value="education">Education</option>
+              <option value="police">Police &amp; Safety</option>
+              <option value="revenue">Revenue &amp; Land</option>
+              <option value="environment">Environment</option>
+              <option value="other">Other</option>
+            </select>
+            <span class="field-error" id="err-cat"></span>
+          </div>
+          <div class="form-group">
+            <label>Auto-assigned Department</label>
+            <div class="dept-preview" id="deptPreview">Select a category to see assignment</div>
+          </div>
+        </div>
+
+        <div class="form-row">
+          <div class="form-group">
+            <label for="priority">Priority</label>
+            <select id="priority">
+              <option value="low">Low</option>
+              <option value="medium" selected>Medium</option>
+              <option value="high">High</option>
+              <option value="urgent">Urgent</option>
+            </select>
+          </div>
+          <div class="form-group">
+            <label for="location">Location / Area *</label>
+            <input type="text" id="location" placeholder="Sector 14, Lucknow, UP" required>
+            <span class="field-error" id="err-loc"></span>
+          </div>
+        </div>
+
+        <div class="form-group">
+          <label for="subject">Subject *</label>
+          <input type="text" id="subject" placeholder="Brief title of the issue" required>
+          <span class="field-error" id="err-sub"></span>
+        </div>
+
+        <div class="form-group">
+          <label for="description">Description *</label>
+          <textarea id="description" rows="5" placeholder="Describe the issue in detail — what happened, when, and how it affects you..." required></textarea>
+          <div class="char-count"><span id="charCount">0</span> / 1000 characters</div>
+          <span class="field-error" id="err-desc"></span>
+        </div>
+
+        <div class="form-group">
+          <label>Supporting Evidence</label>
+          <div class="file-drop" id="fileDrop" onclick="document.getElementById('fileInput').click()" ondrop="handleDrop(event)" ondragover="event.preventDefault()">
+            <span class="file-drop-icon">📎</span>
+            <p>Drop files here or <strong>click to browse</strong></p>
+            <p class="file-hint">Photos, videos, PDFs — max 10 MB each</p>
+            <input type="file" id="fileInput" multiple accept="image/*,video/*,.pdf" style="display:none" onchange="handleFileSelect(event)">
+          </div>
+          <div id="fileList" class="file-list"></div>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" id="geoConsent">
+            Attach my approximate location (helps identify area-specific patterns)
+          </label>
+        </div>
+
+        <div class="form-actions">
+          <button type="button" class="btn-outline" onclick="resetForm()">Clear Form</button>
+          <button type="submit" class="btn-primary btn-lg">Submit Complaint →</button>
+        </div>
+      </form>
+
+      <aside class="form-sidebar">
+        <div class="sidebar-card">
+          <h4>What happens next?</h4>
+          <ol>
+            <li>You receive a unique Tracking ID instantly.</li>
+            <li>Complaint is auto-routed to the right department.</li>
+            <li>SLA deadline is set (3–15 business days based on priority).</li>
+            <li>Department officer reviews and takes action.</li>
+            <li>You are notified on resolution.</li>
+          </ol>
+        </div>
+        <div class="sidebar-card">
+          <h4>SLA Guidelines</h4>
+          <table class="sla-table">
+            <tr><td>🟢 Low</td><td>15 days</td></tr>
+            <tr><td>🟡 Medium</td><td>7 days</td></tr>
+            <tr><td>🟠 High</td><td>3 days</td></tr>
+            <tr><td>🔴 Urgent</td><td>24 hours</td></tr>
+          </table>
+        </div>
+        <div class="sidebar-card helpline">
+          <h4>Need help?</h4>
+          <p>Call our citizen helpline:</p>
+          <a href="tel:1800111222" class="helpline-num">1800-111-222</a>
+          <p class="helpline-note">Mon–Sat, 9 AM – 6 PM (Free)</p>
+        </div>
+      </aside>
+    </div>
+  </div>
+
+  <!-- SUCCESS MODAL -->
+  <div class="modal-overlay" id="successModal">
+    <div class="modal">
+      <div class="modal-icon success">✓</div>
+      <h3>Complaint Submitted!</h3>
+      <p>Your tracking ID is:</p>
+      <div class="tracking-id-display" id="modalTrackingId">NS-2025-00000</div>
+      <p class="modal-note">Screenshot or copy this ID to track your complaint. A confirmation has been sent to your email.</p>
+      <div class="modal-actions">
+        <button class="btn-outline" onclick="copyTrackingId()">Copy ID</button>
+        <button class="btn-primary" onclick="closeModal();showPage('track')">Track Now →</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========= TRACK PAGE ========= -->
+<div id="page-track" class="page">
+  <div class="page-container narrow">
+    <div class="page-header">
+      <h2>Track Your Complaint</h2>
+      <p>Enter your unique tracking ID to get real-time status updates.</p>
+    </div>
+
+    <div class="track-search-card">
+      <div class="track-input-row">
+        <input type="text" id="trackInput" placeholder="e.g. NS-2025-08841" class="track-input">
+        <button class="btn-primary" onclick="trackComplaint()">Track →</button>
+      </div>
+      <div class="demo-ids">
+        <span>Try demo IDs: </span>
+        <button class="demo-id" onclick="loadDemo('NS-2025-08841')">NS-2025-08841</button>
+        <button class="demo-id" onclick="loadDemo('NS-2025-07723')">NS-2025-07723</button>
+        <button class="demo-id" onclick="loadDemo('NS-2025-06614')">NS-2025-06614</button>
+      </div>
+    </div>
+
+    <div id="trackResult" class="track-result hidden">
+      <div class="complaint-card">
+        <div class="cc-header">
+          <div>
+            <div class="cc-id" id="tc-id">NS-2025-08841</div>
+            <div class="cc-subject" id="tc-subject">Water supply disruption — Sector 14</div>
+          </div>
+          <span class="status-badge" id="tc-status">In Progress</span>
+        </div>
+        <div class="cc-meta">
+          <span>🏛 <span id="tc-dept">Water &amp; Sanitation</span></span>
+          <span>📍 <span id="tc-loc">Sector 14, Lucknow</span></span>
+          <span>⏱ SLA: <span id="tc-sla" class="sla-ok">3 days left</span></span>
+          <span>🚨 Priority: <span id="tc-priority">High</span></span>
+        </div>
+
+        <div class="timeline-section">
+          <div class="timeline" id="trackTimeline"></div>
+        </div>
+
+        <div class="cc-footer">
+          <button class="btn-outline btn-sm" onclick="escalateComplaint()">Escalate</button>
+          <button class="btn-outline btn-sm" onclick="addNote()">Add Note</button>
+          <button class="btn-primary btn-sm" id="feedbackBtn" onclick="showFeedback()" style="display:none">Rate Resolution ⭐</button>
+        </div>
+      </div>
+
+      <div id="feedbackSection" class="feedback-card hidden">
+        <h4>Rate the Resolution</h4>
+        <div class="star-rating" id="starRating">
+          <span onclick="setRating(1)">★</span><span onclick="setRating(2)">★</span>
+          <span onclick="setRating(3)">★</span><span onclick="setRating(4)">★</span><span onclick="setRating(5)">★</span>
+        </div>
+        <textarea id="feedbackText" rows="3" placeholder="How was the resolution? Any suggestions?"></textarea>
+        <button class="btn-primary" onclick="submitFeedback()">Submit Feedback</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ========= DASHBOARD PAGE ========= -->
+<div id="page-dashboard" class="page">
+  <div class="page-container">
+    <div class="dash-header">
+      <div>
+        <h2>Department Dashboard</h2>
+        <p>Water &amp; Sanitation Department — Lucknow Zone</p>
+      </div>
+      <div class="dash-controls">
+        <select id="deptFilter" onchange="filterComplaints()">
+          <option value="all">All Status</option>
+          <option value="open">Open</option>
+          <option value="inprogress">In Progress</option>
+          <option value="resolved">Resolved</option>
+          <option value="escalated">Escalated</option>
+        </select>
+        <select id="sortFilter" onchange="filterComplaints()">
+          <option value="newest">Newest First</option>
+          <option value="oldest">Oldest First</option>
+          <option value="priority">By Priority</option>
+          <option value="sla">SLA Breach Risk</option>
+        </select>
+      </div>
+    </div>
+
+    <div class="dash-stats">
+      <div class="stat-card"><span class="stat-num" id="ds-open">24</span><span class="stat-label">Open</span></div>
+      <div class="stat-card warning"><span class="stat-num" id="ds-inprogress">11</span><span class="stat-label">In Progress</span></div>
+      <div class="stat-card success"><span class="stat-num" id="ds-resolved">183</span><span class="stat-label">Resolved</span></div>
+      <div class="stat-card danger"><span class="stat-num" id="ds-escalated">3</span><span class="stat-label">Escalated</span></div>
+      <div class="stat-card"><span class="stat-num">4.6d</span><span class="stat-label">Avg Resolution</span></div>
+    </div>
+
+    <div class="complaints-table-wrap">
+      <table class="complaints-table">
+        <thead>
+          <tr>
+            <th>ID</th><th>Subject</th><th>Priority</th><th>SLA</th><th>Status</th><th>Assigned To</th><th>Actions</th>
+          </tr>
+        </thead>
+        <tbody id="complaintsTableBody"></tbody>
+      </table>
+    </div>
+  </div>
+</div>
+
+<!-- ========= ANALYTICS PAGE ========= -->
+<div id="page-analytics" class="page">
+  <div class="page-container">
+    <div class="page-header">
+      <h2>Analytics Dashboard</h2>
+      <p>System-wide complaint trends, department performance, and resolution insights.</p>
+    </div>
+
+    <div class="analytics-grid">
+      <div class="analytics-card full">
+        <h4>Monthly Complaints Filed vs Resolved</h4>
+        <div class="chart-wrap">
+          <canvas id="barChart" height="200"></canvas>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <h4>Complaints by Category</h4>
+        <div class="donut-wrap">
+          <canvas id="donutChart" height="200"></canvas>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <h4>Department Performance</h4>
+        <div class="dept-perf-list" id="deptPerfList"></div>
+      </div>
+      <div class="analytics-card">
+        <h4>SLA Compliance Rate</h4>
+        <div class="sla-meter">
+          <div class="sla-big-num">96.4%</div>
+          <div class="sla-bar-wrap"><div class="sla-bar" style="width: 96.4%"></div></div>
+          <div class="sla-sub">Of complaints resolved within deadline</div>
+        </div>
+        <div class="sla-breakdown">
+          <div><span>🟢 On time</span><strong>46,617</strong></div>
+          <div><span>🔴 Breached</span><strong>1,674</strong></div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <h4>Sentiment Analysis</h4>
+        <div class="sentiment-bars">
+          <div class="sent-row"><span>Urgent</span><div class="sent-bar"><div class="sent-fill urgent" style="width:18%"></div></div><span>18%</span></div>
+          <div class="sent-row"><span>Negative</span><div class="sent-bar"><div class="sent-fill negative" style="width:45%"></div></div><span>45%</span></div>
+          <div class="sent-row"><span>Neutral</span><div class="sent-bar"><div class="sent-fill neutral" style="width:27%"></div></div><span>27%</span></div>
+          <div class="sent-row"><span>Positive</span><div class="sent-bar"><div class="sent-fill positive" style="width:10%"></div></div><span>10%</span></div>
+        </div>
+      </div>
+      <div class="analytics-card">
+        <h4>Top Recurring Issues</h4>
+        <ol class="recurring-list">
+          <li>Water supply disruption <span class="recur-count">847</span></li>
+          <li>Pothole on main road <span class="recur-count">712</span></li>
+          <li>Street light not working <span class="recur-count">634</span></li>
+          <li>Garbage not collected <span class="recur-count">521</span></li>
+          <li>Electricity outage <span class="recur-count">498</span></li>
+        </ol>
+      </div>
+    </div>
+  </div>
+</div>
+
+<footer class="site-footer">
+  <div class="footer-inner">
+    <div>
+      <span class="brand-name">NagrikSeva</span>
+      <p>Government of India — Ministry of Public Grievances</p>
+    </div>
+    <div class="footer-links">
+      <a href="#">RTI Portal</a>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Accessibility</a>
+      <a href="#">Help</a>
+    </div>
+    <div class="footer-right">
+      <p>Helpline: <strong>1800-111-222</strong></p>
+      <p>Available Mon–Sat, 9 AM – 6 PM</p>
+    </div>
+  </div>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="app.js"></script>
+</body>
+</html>
